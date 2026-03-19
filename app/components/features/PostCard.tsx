@@ -3,12 +3,12 @@ import { MapPin } from "lucide-react";
 
 export default function Post(post: Post) {
   return (
-    <article className="w-full max-w-[450px] bg-transparent flex flex-col p-4">
+    <article className="w-full max-w-112.5 bg-transparent flex flex-col p-4">
       <figure className="w-full mb-6">
         <img
           src={post.image_url}
           alt={post.title}
-          className="w-full aspect-[4/5] object-cover rounded-xl shadow-ambient-glow"
+          className="w-full aspect-4/5 object-cover rounded-xl shadow-ambient-glow"
         />
       </figure>
 
