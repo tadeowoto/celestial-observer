@@ -1,7 +1,12 @@
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import PostList from "./components/features/PostList";
 export default function Home() {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <main className="w-full min-h-screen h-fit flex flex-col items-center">
+      <Header />
+      <PostList />
+      <Footer />
+    </main>
   );
 }
