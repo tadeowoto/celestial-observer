@@ -1,3 +1,3 @@
 export default function Footer() {
-  return <footer>Footer</footer>;
+  return <footer className="hidden md:hidden lg:flex">Footer</footer>;
 }
