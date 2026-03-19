@@ -1,15 +1,6 @@
-interface PostProps {
-  title: string;
-  image_url: string;
-  celestial_body: string;
-  equipment: string;
-  created_at: string;
-  atmosphere_condition: string;
-  description: string;
-  where: string;
-}
+import { Post } from "@/types/types";
 
-export default function PostCard(post: PostProps) {
+export default function PostCard(post: Post) {
   return (
     <article className="w-full h-full flex flex-col items-center">
       <figure>

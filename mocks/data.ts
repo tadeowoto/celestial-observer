@@ -1,5 +1,6 @@
+import { Post } from "@/types/types";
 
-const MOCK_POSTS: PostProps[] = [
+export const MOCK_POSTS: Post[] = [
   {
     title: "Deep Field: The Pillars of Creation",
     image_url: "https://images-assets.nasa.gov/image/PIA23645/PIA23645~medium.jpg",
@@ -12,7 +13,7 @@ const MOCK_POSTS: PostProps[] = [
   },
   {
     title: "The Rings of Saturn: Shadow Transit",
-    image_url: "https://images-assets.nasa.gov/image/PIA06214/PIA06214~medium.jpg",
+    image_url: "https://www.univision.com/_next/image?url=https%3A%2F%2Fst1.uvnimg.com%2F91%2F4e%2F43dd36534b5792afea0228cdacd0%2Fwebbtelescopiouniv14.jpg&w=1280&q=75",
     celestial_body: "Saturn (Gas Giant)",
     equipment: "Cassini-Huygens Mission / Wide Angle Camera",
     created_at: "2026-02-28T04:12:30Z",
@@ -22,7 +23,7 @@ const MOCK_POSTS: PostProps[] = [
   },
   {
     title: "Tycho Crater: Terminator Detail",
-    image_url: "https://images-assets.nasa.gov/image/LRO_Tycho_Crater/LRO_Tycho_Crater~medium.jpg",
+    image_url: "https://cdn.pixabay.com/photo/2024/12/07/13/08/space-9250868_1280.jpg",
     celestial_body: "The Moon (Luna)",
     equipment: "Planewave CDK17 + ZWO ASI6200MM Pro",
     created_at: "2026-03-18T19:00:00Z",
