@@ -1,22 +1,61 @@
-import { Post } from "@/types/types";
+import type { Post } from "@/types/types";
+import { MapPin } from "lucide-react";
 
-export default function PostCard(post: Post) {
+export default function Post(post: Post) {
   return (
-    <article className="w-full h-full flex flex-col items-center">
-      <figure>
-        <img src={post.image_url} alt={post.title} />
+    <article className="w-full max-w-[450px] bg-transparent flex flex-col p-4">
+      <figure className="w-full mb-6">
+        <img
+          src={post.image_url}
+          alt={post.title}
+          className="w-full aspect-[4/5] object-cover rounded-xl shadow-ambient-glow"
+        />
       </figure>
-      <div>
-        <p>{post.celestial_body}</p>
-        <p>{post.created_at}</p>
+
+      <div className="flex items-center gap-3 mb-4">
+        <div className="bg-surface-container-high px-3 py-1 rounded-md">
+          <p className="text-primary font-display text-label-sm uppercase tracking-instrument font-bold">
+            {post.celestial_body}
+          </p>
+        </div>
+        <p className="text-on-surface-variant/50 font-body text-body-md">
+          {post.created_at}
+        </p>
       </div>
-      <div>
-        <h1>{post.title}</h1>
-        <p>{post.description}</p>
-        <p>{post.equipment}</p>
-        <p>{post.atmosphere_condition}</p>
+
+      <div className="flex flex-col gap-4">
+        <h1 className="text-on-surface font-display text-headline-md font-bold leading-tight">
+          {post.title}
+        </h1>
+
+        <p className="text-on-surface-variant font-body text-body-md leading-relaxed opacity-80">
+          {post.description}
+        </p>
+
+        <div className="flex flex-col gap-1.5 pt-2">
+          <p className="text-on-surface-variant/40 font-body text-label-sm uppercase tracking-widest">
+            Instrument:
+            <span className="text-on-surface-variant/70">
+              {` ` + post.equipment}
+            </span>
+          </p>
+          <p className="text-on-surface-variant/40 font-body text-label-sm uppercase tracking-widest">
+            Condition:
+            <span className="text-on-surface-variant/70">
+              {` ` + post.atmosphere_condition}
+            </span>
+          </p>
+        </div>
       </div>
-      <p>{post.where}</p>
+
+      <div className="mt-8 flex items-center gap-2 border-t border-outline-variant/10 pt-4">
+        <span className="text-primary/60 text-xs">
+          <MapPin />
+        </span>
+        <p className="text-on-surface-variant/60 font-body text-label-sm uppercase tracking-instrument">
+          {post.where}
+        </p>
+      </div>
     </article>
   );
 }
