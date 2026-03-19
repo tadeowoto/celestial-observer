@@ -9,7 +9,7 @@ interface PostProps {
   where: string;
 }
 
-export default function Post(post: PostProps) {
+export default function PostCard(post: PostProps) {
   return (
     <article className="w-full h-full flex flex-col items-center">
       <figure>
