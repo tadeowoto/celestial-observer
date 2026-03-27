@@ -1,7 +1,6 @@
 import { getPostById } from "@/lib/posts";
 import { notFound } from "next/navigation";
-import { ChevronLeft, Share2, Compass, Zap, Quote } from "lucide-react";
-import Link from "next/link";
+import { Zap, Quote } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -22,26 +21,6 @@ export default async function PostPage({ params }: PageProps) {
   }
   return (
     <main className="min-h-screen text-pretty bg-background text-on-surface font-body pb-24">
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/10 px-6 py-4 flex justify-between items-center">
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors"
-        >
-          <ChevronLeft size={20} strokeWidth={1.5} />
-          <span className="text-label-sm uppercase tracking-instrument">
-            Observation Entry
-          </span>
-        </Link>
-        <div className="flex gap-4">
-          <Share2
-            size={20}
-            className="text-on-surface-variant"
-            strokeWidth={1.5}
-          />
-          <div className="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant/20" />
-        </div>
-      </nav>
-
       <section className="relative w-full h-[55vh] overflow-hidden">
         <img
           src={post.image_url}
