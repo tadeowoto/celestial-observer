@@ -1,7 +1,10 @@
 import PostCard from "./PostCard";
-import { MOCK_POSTS } from "@/mocks/data";
+import { Post } from "@/types/types";
+import getPosts from "@/lib/posts";
 
-export default function PostList() {
+export default async function PostList() {
+  const posts = await getPosts();
+
   return (
     <section className="w-full h-fit min-h-screen  p-5">
       <div className="w-full h-20 border-b border-outline-variant">
@@ -9,8 +12,8 @@ export default function PostList() {
         <h2 className="text-3xl font-bold">Discovery the Journal</h2>
       </div>
       <ul className="w-full h-full grid grid-cols-1 place-items-center gap-10 p-5 mt-10">
-        {MOCK_POSTS.map((post) => (
-          <PostCard key={post.title} {...post} />
+        {posts.map((post: Post) => (
+          <PostCard key={post.postId} {...post} />
         ))}
       </ul>
     </section>

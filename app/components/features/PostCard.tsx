@@ -42,7 +42,7 @@ export default function Post(post: Post) {
           <p className="text-on-surface-variant/40 font-body text-label-sm uppercase tracking-widest">
             Condition:
             <span className="text-on-surface-variant/70">
-              {` ` + post.atmosphere_condition}
+              {` ` + post.atmosphereCondition}
             </span>
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function Post(post: Post) {
           <MapPin />
         </span>
         <p className="text-on-surface-variant/60 font-body text-label-sm uppercase tracking-instrument">
-          {post.where}
+          {post.location}
         </p>
       </div>
     </article>
