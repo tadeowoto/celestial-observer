@@ -2,12 +2,11 @@
 export type  Post = {
   postId: number;
   title: string;
-  image_url: string;
-  celestial_body: string;
+  imageUrl: string;
+  celestialBody: string;
   equipment: string;
-  created_at: string;
+  createdAt: string;
   atmosphereCondition: string;
   description: string;
   location: string;
 }
-

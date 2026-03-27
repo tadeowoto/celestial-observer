@@ -7,7 +7,7 @@ export default function Post(post: Post) {
       <article className="w-full max-w-112.5 bg-transparent flex flex-col p-4">
         <figure className="w-full mb-6">
           <img
-            src={post.image_url}
+            src={post.imageUrl}
             alt={post.title}
             className="w-full aspect-4/5 object-cover rounded-xl shadow-ambient-glow"
           />
@@ -16,11 +16,11 @@ export default function Post(post: Post) {
         <div className="flex items-center gap-3 mb-4">
           <div className="bg-surface-container-high px-3 py-1 rounded-md">
             <p className="text-primary font-display text-label-sm uppercase tracking-instrument font-bold">
-              {post.celestial_body}
+              {post.celestialBody}
             </p>
           </div>
           <p className="text-on-surface-variant/50 font-body text-body-md">
-            {post.created_at}
+            {post.createdAt}
           </p>
         </div>
 

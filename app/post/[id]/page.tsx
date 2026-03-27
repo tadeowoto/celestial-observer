@@ -23,7 +23,7 @@ export default async function PostPage({ params }: PageProps) {
     <main className="min-h-screen text-pretty bg-background text-on-surface font-body pb-24">
       <section className="relative w-full h-[55vh] overflow-hidden">
         <img
-          src={post.image_url}
+          src={post.imageUrl}
           alt={post.title}
           className="w-full h-full object-cover"
         />
@@ -31,7 +31,7 @@ export default async function PostPage({ params }: PageProps) {
 
         <div className="absolute bottom-8 left-6 flex gap-2">
           <span className="bg-surface-container-low/60 backdrop-blur-sm border border-primary/20 text-primary px-3 py-1 rounded-md text-label-sm font-bold tracking-instrument uppercase">
-            {post.celestial_body || "Unknown"}
+            {post.celestialBody || "Unknown"}
           </span>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default async function PostPage({ params }: PageProps) {
 
         <div className="flex gap-4 mb-10 py-5 border-l-2 border-primary/30 pl-6 bg-primary/5 rounded-r-lg">
           <p className="text-on-surface-variant text-body-md leading-relaxed italic">
-            Located in the sector of {post.celestial_body}, this observation
+            Located in the sector of {post.celestialBody}, this observation
             reveals the intricate telemetry captured by the {post.equipment}.
           </p>
         </div>
@@ -71,7 +71,7 @@ export default async function PostPage({ params }: PageProps) {
               Captured At
             </span>
             <span className="text-xl font-display text-secondary">
-              {post.created_at}
+              {post.createdAt}
             </span>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default async function PostPage({ params }: PageProps) {
             size={40}
           />
           <p className="text-body-md italic text-on-surface-variant leading-relaxed mb-4">
-            {`"The data streams from ${post.celestial_body} show a consistent
+            {`"The data streams from ${post.celestialBody} show a consistent
             ionization pattern. The clarity achieved with the ${post.equipment} 
             provides an unprecedented look at this sector." `}
           </p>

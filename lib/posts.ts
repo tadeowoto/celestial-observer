@@ -7,10 +7,10 @@ export default async function getAllPosts(){
       const mappedPosts = posts.map((post: Post) => {
         return {
           title: post.title,
-          image_url: post.image_url,
-          celestial_body: post.celestial_body,
+          imageUrl: post.imageUrl,
+          celestialBody: post.celestialBody,
           equipment: post.equipment,
-          created_at: post.created_at,
+          createdAt: post.createdAt,
           atmosphereCondition: post.atmosphereCondition,
           description: post.description,
           location: post.location,
@@ -25,10 +25,10 @@ export async function getPostById(id: number) {
   const post = await data.json();
   const mappedPost = {
     title: post.title,
-    image_url: post.imageUrl,
-    celestial_body: post.celestialBody,
+    imageUrl: post.imageUrl,
+    celestialBody: post.celestialBody,
     equipment: post.equipment,
-    created_at: post.createdAt,
+    createdAt: post.createdAt,
     atmosphereCondition: post.atmosphereCondition,
     description: post.description,
     location: post.location,
