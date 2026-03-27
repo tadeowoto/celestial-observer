@@ -12,9 +12,9 @@ export default function Header({
 }: HeaderProps) {
   return (
     <header className="w-full h-16">
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/10 px-6 py-4 flex justify-between items-center">
+      <nav className="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-md border-b border-outline-variant/10 px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
-          {showBack ? (
+          {showBack == true ? (
             <Link
               href="/"
               className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors"
