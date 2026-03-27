@@ -21,7 +21,7 @@ export default async function PostPage({ params }: PageProps) {
     return notFound();
   }
   return (
-    <main className="min-h-screen bg-background text-on-surface font-body pb-24">
+    <main className="min-h-screen text-pretty bg-background text-on-surface font-body pb-24">
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant/10 px-6 py-4 flex justify-between items-center">
         <Link
           href="/"
@@ -92,7 +92,7 @@ export default async function PostPage({ params }: PageProps) {
               Captured At
             </span>
             <span className="text-xl font-display text-secondary">
-              {new Date(post.created_at).toLocaleDateString()}
+              {post.created_at}
             </span>
           </div>
         </div>
@@ -130,14 +130,14 @@ export default async function PostPage({ params }: PageProps) {
             size={40}
           />
           <p className="text-body-md italic text-on-surface-variant leading-relaxed mb-4">
-            {`"The data streams from ${post.celestialBody} show a consistent
-            ionization pattern. The clarity achieved with the {post.equipment}{" "}
+            {`"The data streams from ${post.celestial_body} show a consistent
+            ionization pattern. The clarity achieved with the ${post.equipment} 
             provides an unprecedented look at this sector." `}
           </p>
           <div className="flex items-center gap-3">
             <div className="w-6 h-px bg-primary" />
             <span className="text-label-sm uppercase tracking-instrument font-bold text-primary">
-              Lead Observer Data
+              Author of the Observation
             </span>
           </div>
         </div>
