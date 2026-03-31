@@ -1,5 +1,5 @@
 interface FormErrorMessageProps {
-  message: string;
+  message?: string;
 }
 
 export default function FormErrorMessage({ message }: FormErrorMessageProps) {

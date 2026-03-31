@@ -25,12 +25,27 @@ export default function PostForm() {
           Title
         </label>
         <input
-          {...register("title", { required: true })}
+          {...register("title", {
+            required: {
+              value: true,
+              message: "Title is required.",
+            },
+            minLength: {
+              value: 3,
+              message: "Title must be at least 3 characters.",
+            },
+            maxLength: {
+              value: 20,
+              message: "Title must be at most 20 characters.",
+            },
+          })}
           type="text"
           placeholder="Celestial Event Name"
           className="bg-transparent border-b border-outline-variant py-2 text-on-surface focus:outline-none focus:border-primary transition-colors placeholder:text-on-surface-variant/20"
         />
-        {errors.title && <FormErrorMessage message="Title is required." />}
+        {errors.title && (
+          <FormErrorMessage message={errors.title.message?.toString()} />
+        )}
       </div>
       <div className="flex flex-col gap-2">
         <label
@@ -41,7 +56,16 @@ export default function PostForm() {
         </label>
         <div className="relative">
           <input
-            {...register("imageUrl", { required: true })}
+            {...register("imageUrl", {
+              required: {
+                value: true,
+                message: "Image URL is required.",
+              },
+              pattern: {
+                value: /^(https?:\/\/[^\s]+)$/,
+                message: "Please enter a valid URL.",
+              },
+            })}
             type="text"
             placeholder="https://nasa.gov/capture..."
             className="w-full bg-surface-container-lowest border border-outline-variant rounded-lg py-4 px-12 text-on-surface focus:outline-none focus:border-primary/50 transition-colors placeholder:text-on-surface-variant/20"
@@ -51,7 +75,7 @@ export default function PostForm() {
           </span>
         </div>
         {errors.imageUrl && (
-          <FormErrorMessage message="Image URL is required." />
+          <FormErrorMessage message={errors.imageUrl.message?.toString()} />
         )}
       </div>
 
