@@ -1,5 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
+import FormErrorMessage from "../ui/FormErrorMessage";
 
 export default function PostForm() {
   const {
@@ -29,9 +30,7 @@ export default function PostForm() {
           placeholder="Celestial Event Name"
           className="bg-transparent border-b border-outline-variant py-2 text-on-surface focus:outline-none focus:border-primary transition-colors placeholder:text-on-surface-variant/20"
         />
-        {errors.title && (
-          <span className="text-red-500 text-sm mt-1">Title is required.</span>
-        )}
+        {errors.title && <FormErrorMessage message="Title is required." />}
       </div>
       <div className="flex flex-col gap-2">
         <label
@@ -52,9 +51,7 @@ export default function PostForm() {
           </span>
         </div>
         {errors.imageUrl && (
-          <span className="text-red-500 text-sm mt-1">
-            Image URL is required.
-          </span>
+          <FormErrorMessage message="Image URL is required." />
         )}
       </div>
 
@@ -73,9 +70,7 @@ export default function PostForm() {
             className="bg-transparent border-b border-outline-variant py-1 text-on-surface focus:outline-none focus:border-primary transition-colors"
           />
           {errors.celestialBody && (
-            <span className="text-red-500 text-sm mt-1">
-              Celestial Body is required.
-            </span>
+            <FormErrorMessage message="Celestial Body is required." />
           )}
         </div>
 
@@ -93,9 +88,7 @@ export default function PostForm() {
             className="bg-transparent border-b border-outline-variant py-1 text-on-surface focus:outline-none focus:border-primary transition-colors"
           />
           {errors.equipment && (
-            <span className="text-red-500 text-sm mt-1">
-              Equipment is required.
-            </span>
+            <FormErrorMessage message="Equipment is required." />
           )}
         </div>
 
@@ -112,9 +105,7 @@ export default function PostForm() {
             className="bg-transparent border-b border-outline-variant py-1 text-on-surface focus:outline-none focus:border-primary transition-colors appearance-none"
           />
           {errors.createdAt && (
-            <span className="text-red-500 text-sm mt-1">
-              Created At is required.
-            </span>
+            <FormErrorMessage message="Creation date and time is required." />
           )}
         </div>
       </div>
@@ -133,9 +124,7 @@ export default function PostForm() {
           className="bg-surface-container-low border border-outline-variant rounded-lg p-4 text-on-surface focus:outline-none focus:border-primary/50 transition-colors resize-none placeholder:text-on-surface-variant/20 border-l-4 border-l-primary/40"
         />
         {errors.description && (
-          <span className="text-red-500 text-sm mt-1">
-            Description is required.
-          </span>
+          <FormErrorMessage message="Description is required." />
         )}
       </div>
 
