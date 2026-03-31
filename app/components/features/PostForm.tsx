@@ -2,7 +2,13 @@
 import { useForm } from "react-hook-form";
 
 export default function PostForm() {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  console.log(errors);
 
   const onSubmit = handleSubmit((data) => {
     console.log("Form Data:", data);
@@ -18,13 +24,14 @@ export default function PostForm() {
           Title
         </label>
         <input
-          {...register("title")}
+          {...register("title", { required: true })}
           type="text"
-          id="title"
-          name="title"
           placeholder="Celestial Event Name"
           className="bg-transparent border-b border-outline-variant py-2 text-on-surface focus:outline-none focus:border-primary transition-colors placeholder:text-on-surface-variant/20"
         />
+        {errors.title && (
+          <span className="text-red-500 text-sm mt-1">Title is required.</span>
+        )}
       </div>
       <div className="flex flex-col gap-2">
         <label
@@ -35,10 +42,8 @@ export default function PostForm() {
         </label>
         <div className="relative">
           <input
-            {...register("imageUrl")}
+            {...register("imageUrl", { required: true })}
             type="text"
-            id="image-url"
-            name="image-url"
             placeholder="https://nasa.gov/capture..."
             className="w-full bg-surface-container-lowest border border-outline-variant rounded-lg py-4 px-12 text-on-surface focus:outline-none focus:border-primary/50 transition-colors placeholder:text-on-surface-variant/20"
           />
@@ -46,6 +51,11 @@ export default function PostForm() {
             ▧
           </span>
         </div>
+        {errors.imageUrl && (
+          <span className="text-red-500 text-sm mt-1">
+            Image URL is required.
+          </span>
+        )}
       </div>
 
       <div className="bg-surface-container-low border border-outline-variant rounded-2xl p-6 flex flex-col gap-6">
@@ -57,13 +67,16 @@ export default function PostForm() {
             Celestial Body
           </label>
           <input
-            {...register("celestialBody")}
+            {...register("celestialBody", { required: true })}
             type="text"
-            id="celestial-body"
-            name="celestial-body"
             placeholder="e.g. Messier 31"
             className="bg-transparent border-b border-outline-variant py-1 text-on-surface focus:outline-none focus:border-primary transition-colors"
           />
+          {errors.celestialBody && (
+            <span className="text-red-500 text-sm mt-1">
+              Celestial Body is required.
+            </span>
+          )}
         </div>
 
         <div className="flex flex-col gap-2">
@@ -74,13 +87,16 @@ export default function PostForm() {
             Equipment
           </label>
           <input
-            {...register("equipment")}
+            {...register("equipment", { required: true })}
             type="text"
-            id="equipment"
-            name="equipment"
             placeholder="Apo-Refractor 130mm"
             className="bg-transparent border-b border-outline-variant py-1 text-on-surface focus:outline-none focus:border-primary transition-colors"
           />
+          {errors.equipment && (
+            <span className="text-red-500 text-sm mt-1">
+              Equipment is required.
+            </span>
+          )}
         </div>
 
         <div className="flex flex-col gap-2">
@@ -91,12 +107,15 @@ export default function PostForm() {
             Created At
           </label>
           <input
-            {...register("createdAt")}
+            {...register("createdAt", { required: true })}
             type="datetime-local"
-            id="location"
-            name="location"
             className="bg-transparent border-b border-outline-variant py-1 text-on-surface focus:outline-none focus:border-primary transition-colors appearance-none"
           />
+          {errors.createdAt && (
+            <span className="text-red-500 text-sm mt-1">
+              Created At is required.
+            </span>
+          )}
         </div>
       </div>
 
@@ -108,13 +127,16 @@ export default function PostForm() {
           Description
         </label>
         <textarea
-          {...register("description")}
-          id="description"
-          name="description"
+          {...register("description", { required: true })}
           rows={5}
           placeholder="Detail the visual clarity, color shifts, and observed phenomena..."
           className="bg-surface-container-low border border-outline-variant rounded-lg p-4 text-on-surface focus:outline-none focus:border-primary/50 transition-colors resize-none placeholder:text-on-surface-variant/20 border-l-4 border-l-primary/40"
         />
+        {errors.description && (
+          <span className="text-red-500 text-sm mt-1">
+            Description is required.
+          </span>
+        )}
       </div>
 
       <button className="w-full mb-20 py-4 mt-4 bg-linear-to-r from-primary to-on-primary-container rounded-xl text-on-primary-fixed font-display font-bold uppercase tracking-instrument shadow-ambient-glow hover:scale-[1.01] transition-transform active:scale-[0.98]">
