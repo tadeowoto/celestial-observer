@@ -30,8 +30,8 @@ export default function PostForm() {
         location: "Backyard Observatory",
       };
       createPost(postData);
-      //router.push("/");
-      //router.refresh();
+      router.push("/");
+      router.refresh();
     } catch (error) {
       console.error("[TRANSMISSION_ERROR]:", error);
     } finally {
