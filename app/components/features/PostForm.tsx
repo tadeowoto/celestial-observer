@@ -2,6 +2,9 @@
 import { useForm } from "react-hook-form";
 import FormErrorMessage from "../ui/FormErrorMessage";
 import { ImagePlus } from "lucide-react";
+import { createPost } from "@/lib/posts";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function PostForm() {
   const {
@@ -9,11 +12,31 @@ export default function PostForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  console.log(errors);
+  const router = useRouter();
+  const [isPending, setIsPending] = useState(false);
 
   const onSubmit = handleSubmit((data) => {
-    console.log("Form Data:", data);
+    setIsPending(true);
+
+    try {
+      const postData = {
+        title: data.title,
+        imageUrl: data.imageUrl,
+        celestialBody: data.celestialBody,
+        equipment: data.equipment,
+        createdAt: data.createdAt,
+        atmosphereCondition: "Clear",
+        description: data.description,
+        location: "Backyard Observatory",
+      };
+      createPost(postData);
+      //router.push("/");
+      //router.refresh();
+    } catch (error) {
+      console.error("[TRANSMISSION_ERROR]:", error);
+    } finally {
+      setIsPending(false);
+    }
   });
 
   return (
@@ -155,7 +178,7 @@ export default function PostForm() {
       </div>
 
       <button className="w-full mb-20 py-4 mt-4 bg-linear-to-r from-primary to-on-primary-container rounded-xl text-on-primary-fixed font-display font-bold uppercase tracking-instrument shadow-ambient-glow hover:scale-[1.01] transition-transform active:scale-[0.98]">
-        Publish to Archive
+        {isPending ? "Saving..." : "Save Log Entry"}
       </button>
     </form>
   );

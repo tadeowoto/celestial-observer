@@ -36,3 +36,22 @@ export async function getPostById(id: number) {
   }
   return mappedPost;
 }
+
+export async function createPost(postData: Omit<Post, 'postId'>) {
+  const response = await fetch("http://localhost:8080/posts/create", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      ...postData,
+      userId: 1
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("TELEMETRY_TRANSMISSION_FAILED");
+  }
+
+  return response.json();
+}
