@@ -1,6 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import FormErrorMessage from "../ui/FormErrorMessage";
+import { ImagePlus } from "lucide-react";
 
 export default function PostForm() {
   const {
@@ -70,9 +71,10 @@ export default function PostForm() {
             placeholder="https://nasa.gov/capture..."
             className="w-full bg-surface-container-lowest border border-outline-variant rounded-lg py-4 px-12 text-on-surface focus:outline-none focus:border-primary/50 transition-colors placeholder:text-on-surface-variant/20"
           />
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/40">
-            ▧
-          </span>
+
+          <div className="absolute top-4 left-4">
+            <ImagePlus size={20} strokeWidth={1.5} />
+          </div>
         </div>
         {errors.imageUrl && (
           <FormErrorMessage message={errors.imageUrl.message?.toString()} />
