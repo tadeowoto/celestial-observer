@@ -1,4 +1,9 @@
+"use client";
+import { useForm } from "react-hook-form";
+
 export default function PostForm() {
+  const { register } = useForm();
+
   return (
     <form className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
@@ -9,6 +14,7 @@ export default function PostForm() {
           Title
         </label>
         <input
+          {...register("title")}
           type="text"
           id="title"
           name="title"
@@ -25,6 +31,7 @@ export default function PostForm() {
         </label>
         <div className="relative">
           <input
+            {...register("imageUrl")}
             type="text"
             id="image-url"
             name="image-url"
@@ -46,6 +53,7 @@ export default function PostForm() {
             Celestial Body
           </label>
           <input
+            {...register("celestialBody")}
             type="text"
             id="celestial-body"
             name="celestial-body"
@@ -62,6 +70,7 @@ export default function PostForm() {
             Equipment
           </label>
           <input
+            {...register("equipment")}
             type="text"
             id="equipment"
             name="equipment"
@@ -78,6 +87,7 @@ export default function PostForm() {
             Created At
           </label>
           <input
+            {...register("createdAt")}
             type="datetime-local"
             id="location"
             name="location"
@@ -94,6 +104,7 @@ export default function PostForm() {
           Description
         </label>
         <textarea
+          {...register("description")}
           id="description"
           name="description"
           rows={5}
