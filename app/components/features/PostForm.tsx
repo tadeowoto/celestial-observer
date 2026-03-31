@@ -2,10 +2,14 @@
 import { useForm } from "react-hook-form";
 
 export default function PostForm() {
-  const { register } = useForm();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = handleSubmit((data) => {
+    console.log("Form Data:", data);
+  });
 
   return (
-    <form className="flex flex-col gap-8">
+    <form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <div className="flex flex-col gap-2">
         <label
           htmlFor="title"
